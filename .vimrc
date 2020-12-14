@@ -19,7 +19,7 @@ Plugin 'stanangeloff/php.vim'
 call vundle#end()
 filetype plugin indent on
 
-autocmd vimenter * NERDtree
+autocmd vimenter * NERDTree
 let NURDTreeShowHidden=1
 
 nmap <F8> :TagbarToggle<CR>

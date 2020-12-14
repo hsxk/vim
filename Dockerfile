@@ -31,6 +31,7 @@ RUN git config --global user.email $GITEMAIL \
 FROM vim as plugin
 ADD gruvbox.vim /usr/share/vim/vim82/colors/gruvbox.vim
 ADD .vimrc /root/.vimrc
+ADD ./vim/* /root/.vim/
 RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim \
     && vim +PluginInstall +qall \
     && cd /root/.vim/bundle/YouCompleteMe \
