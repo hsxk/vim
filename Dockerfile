@@ -16,7 +16,8 @@ ARG GITUSER=haokexin
 ARG GITEMAIL=haokexin1214@gmail.com
 RUN git config --global user.email $GITEMAIL \
     && git config --global user.name $GITUSER \
-    && git clone https://github.com/vim/vim.git \
+    && cd / \
+	&& git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
 	               --enable-python3interp=yes \
@@ -25,7 +26,7 @@ RUN git config --global user.email $GITEMAIL \
    	               --enable-multibyte \
     && make VIMRUNTIMEDIR=/usr/share/vim/vim82 \
     && make install \
-    && rm -rf vim
+    && rm -rf /vim
 
 FROM vim as plugin
 ADD gruvbox.vim /usr/share/vim/vim82/colors/gruvbox.vim
@@ -37,6 +38,6 @@ RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vund
     && git submodule update --init --recursive \
     && python3 /root/.vim/bundle/YouCompleteMe/install.py --all \
     && apt remove --purge libtinfo-dev build-essential cmake wget -y \
-    && find /root/.vim/ -name ".git" | xargs rm -Rf \
+    && find /root/.vim/ -name ".git*" | xargs rm -Rf \
     && rm -rf /root/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
 CMD ["/bin/bash"]

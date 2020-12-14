@@ -14,6 +14,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'stanangeloff/php.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -21,7 +22,7 @@ filetype plugin indent on
 autocmd vimenter * NERDtree
 let NURDTreeShowHidden=1
 
-nmap <F2> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 let g:ale_sign_column_always=1
 let g:ale_set_highlights=0
@@ -42,7 +43,7 @@ colorscheme gruvbox
 set background=dark
 let g:ligthline={'colorscheme':'gruvbox'}
 
-let mapleader="\<Space>"
+let mapleader="\<Space>" 
 set noswapfile
 set encoding=utf-8
 set fileencodings=utf-8,gb18030
