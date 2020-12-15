@@ -3,10 +3,8 @@ MAINTAINER haokexin1214@gmail.com
 ENV TZ=Asia/Tokyo
 ADD .bashrc /root/.bashrc
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && apt-add-repository ppa:mizuno-as/silversearcher-ag \
 	&& apt-get update -y \
-	&& apt-get install -f -y silversearcher-ag ripgrep bat fzf \
-    && apt install -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags \
+    && apt install -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags fzf \
     && apt install libtinfo-dev locales cmake -y --fix-missing \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
