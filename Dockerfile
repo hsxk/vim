@@ -4,6 +4,7 @@ ENV TZ=Asia/Tokyo
 ADD .bashrc /root/.bashrc
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt-get update -y \
+	&& dpkg -P --force-remove-reinstreq silversearcher-ag ripgrep bat fzf \
 	&& apt-get install -f -y silversearcher-ag ripgrep bat fzf \
     && apt install -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags \
     && apt install libtinfo-dev locales cmake -y --fix-missing \
