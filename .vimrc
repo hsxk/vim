@@ -13,6 +13,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'stanangeloff/php.vim'
 
@@ -20,7 +21,7 @@ call vundle#end()
 filetype plugin indent on
 
 autocmd vimenter * NERDTree
-let NURDTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 nmap <F8> :TagbarToggle<CR>
 
