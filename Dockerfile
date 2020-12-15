@@ -41,5 +41,5 @@ RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vund
     && apt remove --purge libtinfo-dev build-essential cmake wget -y \
     && find /root/.vim/ -name ".git*" | xargs rm -Rf \
     && rm -rf /root/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
-ADD --chown root:root fzf-0.24.4-linux_amd64.tar.gz /root/.vim/bundle/fzf/bin/
+ADD --chown=root:root fzf-0.24.4-linux_amd64.tar.gz /root/.vim/bundle/fzf/bin/
 CMD ["/bin/bash"]
