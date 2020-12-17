@@ -4,9 +4,9 @@ ENV TZ=Asia/Tokyo
 ARG GITUSER=haokexin
 ARG GITEMAIL=haokexin1214@gmail.com
 ADD .bashrc ~/.bashrc
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apk --no-cache add -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags\
-    && apk --no-cache add libtinfo-dev locales cmake make gcc g++ -y \
+    && apk --no-cache add libtinfo-dev locales cmake make gcc g++ bash -y \
     && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
     && apk cache clean -y \
     && git config --global user.email $GITEMAIL \
