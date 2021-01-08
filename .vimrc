@@ -16,7 +16,6 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'stanangeloff/php.vim'
-Plugin 'suan/vim-instant-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,17 +37,6 @@ nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
-
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_open_to_the_world = 1
-let g:instant_markdown_allow_unsafe_content = 1
-let g:instant_markdown_allow_external_content = 0
-let g:instant_markdown_mathjax = 1
-let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-let g:instant_markdown_autoscroll = 0
-let g:instant_markdown_port = 8888
-let g:instant_markdown_python = 1
 
 syntax enable
 set t_Co=256
