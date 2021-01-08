@@ -8,7 +8,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt install libtinfo-dev locales cmake -y --fix-missing \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
-	&& npm -g install instant-markdown-d \
     && apt-get clean -y \
     && apt autoremove -y
 
@@ -27,7 +26,8 @@ RUN git config --global user.email $GITEMAIL \
    	               --enable-multibyte \
     && make VIMRUNTIMEDIR=/usr/share/vim/vim82 \
     && make install \
-    && rm -rf /vim
+    && rm -rf /vim \
+	&& npm -g install instant-markdown-d
 
 FROM vim as plugin
 ADD gruvbox.vim /usr/share/vim/vim82/colors/gruvbox.vim
