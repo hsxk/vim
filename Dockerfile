@@ -1,10 +1,10 @@
 FROM ubuntu:latest as base
-MAINTAINER haokexin1214@gmail.com
+LABEL maintainer="haokexin1214@gmail.com"
 ENV TZ=Asia/Tokyo
 ADD .bashrc /root/.bashrc
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
 	&& apt-get update -y \
-    && apt install -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags fzf \
+    && apt install -y build-essential python3-dev mono-complete golang nodejs default-jdk npm wget git ctags fzf curl xdg-utils \
     && apt install libtinfo-dev locales cmake -y --fix-missing \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
@@ -41,5 +41,4 @@ RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vund
     && apt remove --purge libtinfo-dev build-essential cmake wget -y \
     && find /root/.vim/ -name ".git*" | xargs rm -Rf \
     && rm -rf /root/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
-ADD --chown=root:root fzf-0.24.4-linux_amd64.tar.gz /root/.vim/bundle/fzf/bin/
-CMD ["/bin/bash"]
+ADD --chown=root:root fzf /root/.vim/bundle/fzf/bin/
